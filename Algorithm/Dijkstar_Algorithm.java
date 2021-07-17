@@ -56,11 +56,4 @@ public class Dijkstar_Algorithm {
             }
         }
     }
-
-    Vector<HashMap<Integer, Integer>> vector;
-    // Queue 다익스트라
-    void quijkstra(int start) {
-        d[start] = 0;
-        Queue<HashMap<Integer, Integer>> pq = null;
-    }
 }
