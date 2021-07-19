@@ -7,7 +7,7 @@ import java.util.Vector;
 public class Dijkstar_Algorithm {
     public static void main(String[] args) {
         Dijkstar_Algorithm dl = new Dijkstar_Algorithm();
-        dl.dijkstra(1);
+        dl.dijkstra(1);   
         dl.quijkstra(1);
     }
 
