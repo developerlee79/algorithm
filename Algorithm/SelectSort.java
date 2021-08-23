@@ -11,24 +11,28 @@ public class SelectSort {
         System.out.println(Arrays.toString(arr));
     }
 
-    static int tmp = 0;
+    static int cnt = 0;
 
-    void sort(int[] arr, int x) {
-        if (tmp == arr.length - 1) return;
-        if (x >= arr.length - 1) {
-            tmp = 0;
-            x = 0;
+    void sort(int[] arr, int idx) {
+        if (cnt == arr.length - 1) return;
+        if (idx == arr.length - 1) {
+            cnt = 0;
+            idx = 0;
         }
 
-        if (arr[x] > arr[x + 1]) {
-            int y = arr[x];
-            arr[x] = arr[x + 1];
-            arr[x + 1] = y;
+        if (arr[idx] > arr[idx + 1]) {
+            swap(arr, idx);
         } else {
-            tmp += 1;
+            cnt++;
         }
 
-        x += 1;
-        sort(arr, x);
+        idx++;
+        sort(arr, idx);
+    }
+
+    void swap(int[] arr, int a) {
+        int tmp = arr[a];
+        arr[a] = arr[a + 1];
+        arr[a + 1] = tmp;
     }
 }
