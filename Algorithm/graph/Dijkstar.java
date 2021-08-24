@@ -4,9 +4,9 @@ import java.util.HashMap;
 import java.util.Queue;
 import java.util.Vector;
 
-public class Dijkstar_Algorithm {
+public class Dijkstar {
     public static void main(String[] args) {
-        Dijkstar_Algorithm dl = new Dijkstar_Algorithm();
+        Dijkstar dl = new Dijkstar();
         dl.dijkstra(1);   
         dl.quijkstra(1);
     }
@@ -24,7 +24,6 @@ public class Dijkstar_Algorithm {
     boolean[] v = new boolean[6];
     int[] d = new int[6];
 
-    // 최소 거리 정점, 선형 탐색
     int getSmallIndex() {
          int min = INF;
          int index = 0;
@@ -39,7 +38,6 @@ public class Dijkstar_Algorithm {
          return index;
     }
 
-    // 다익스트라
     void dijkstra(int start) {
         for (int i = 0; i < number; i++) {
              d[i] = node[start][i];
