@@ -11,36 +11,27 @@ public class leetcode_1328 {
 
     public String breakPalindrome(String palindrome) {
         if (palindrome.length() < 2) return "";
-        String[] palindromeArr = getPalindromeArr(palindrome);
+        char[] palindromeArr = palindrome.toCharArray();
 
         for (int i = 0; i < palindromeArr.length / 2; i++) {
-            if (!palindromeArr[i].equals("a")) {
-                palindromeArr[i] = "a";
-                return Arrays.toString(palindromeArr);
+            if (palindromeArr[i] != 'a') {
+                palindromeArr[i] = 'a';
+                return String.valueOf(palindromeArr);
             }
         }
 
         if (checkSame(palindromeArr)) {
-            palindromeArr[palindromeArr.length - 1] = "b";
-            return Arrays.toString(palindromeArr);
+            palindromeArr[palindromeArr.length - 1] = 'b';
+            return String.valueOf(palindromeArr);
         }
 
         return "";
     }
 
-    private String[] getPalindromeArr(String palindrome) {
-        String[] palindromeArr = new String[palindrome.length()];
-        for (int i = 0; i < palindrome.length(); i++) {
-            palindromeArr[i] = palindrome.substring(i, i + 1);
-        }
-
-        return palindromeArr;
-    }
-
-    private boolean checkSame(String[] palindromeArr) {
+    private boolean checkSame(char[] palindromeArr) {
         int checkAll = 0;
-        for (String s : palindromeArr) {
-            if (palindromeArr[0].equals(s)) checkAll++;
+        for (char s : palindromeArr) {
+            if (palindromeArr[0] == s) checkAll++;
         }
 
         return checkAll == palindromeArr.length;
