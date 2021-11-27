@@ -12,4 +12,4 @@ public class baekjoon_2839 {
         else if (n % 5 == 2 || n % 5 == 4) return (n / 5) + 2;
         else return -1;
     }
-}
+} 
