@@ -15,7 +15,7 @@ public class leetcode_35 {
             int mid = low + (high - low) / 2;
             if (nums[mid] >= target) high = mid;
             else low = mid + 1;
-        }
+        } 
 
         return low;
     }
