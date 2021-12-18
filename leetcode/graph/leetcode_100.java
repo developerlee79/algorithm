@@ -1,6 +1,7 @@
 package leetcode.graph;
 
 public class leetcode_100 {
+    
     public class TreeNode {
         int val;
         TreeNode left;
