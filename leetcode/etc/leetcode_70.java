@@ -22,5 +22,5 @@ public class leetcode_70 {
         }
 
         return result;
-    }
+    } 
 }
