@@ -8,7 +8,7 @@ public class leetcode_longest_common_prefix {
         String str1 = strs[0];
         String str2 = strs[strs.length - 1];
         for (int i = 0; i < str1.length() && i < str2.length(); i++) {
-            if (str1.charAt(i) == str2.charAt(i)) {
+            if (str1.charAt(i) == str2.charAt(i)) { 
                 sb.append(str1.charAt(i));
             } else {
                 return sb.toString();
