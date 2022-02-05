@@ -21,6 +21,6 @@ public class leetcode_20 {
             else if (stack.isEmpty() || stack.pop() != c)
                 return false;
         }
-        return stack.isEmpty();
+        return stack.isEmpty(); 
     }
 }
