@@ -1,4 +1,4 @@
-package leetcode.binary;
+package leetcode.bit_manipulation;
 
 public class leetcode_191 {
     public static void main(String[] args) {
@@ -7,13 +7,13 @@ public class leetcode_191 {
     }
 
     public int hammingWeight(int n) {
-        int count = 0;
+        int cnt = 0;
 
         while (n != 0) {
             n = n & (n - 1);
-            count++;
+            cnt++;
         }
 
-        return count;
+        return cnt;
     }
 }
