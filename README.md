@@ -8,6 +8,8 @@
     </a>
 </div>
 
+<br>
+
 Upload the algorithm problem what I solved / studied with explanatory comments as daily as possible.
 
 Feel free to let me know if you have found a problem(algorithm) that can be improved or approached in a better way.
