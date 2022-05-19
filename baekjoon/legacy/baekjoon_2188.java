@@ -1,11 +1,11 @@
-package baekjoon;
+package baekjoon.legacy;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
 import java.util.ArrayList;
 import java.util.StringTokenizer;
 
-public class baek_2188 {
+public class baekjoon_2188 {
     public static int m, n, result[];
     public static boolean check[];
     public static ArrayList<Integer> node[];

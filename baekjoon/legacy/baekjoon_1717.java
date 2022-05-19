@@ -1,8 +1,8 @@
-package baekjoon;
+package baekjoon.legacy;
 
 import java.util.Scanner;
 
-public class baek_1717 {
+public class baekjoon_1717 {
     public static int[] parent;
 
     public static int find(int x) {
