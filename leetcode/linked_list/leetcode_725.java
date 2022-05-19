@@ -1,4 +1,4 @@
-package leetcode.structure.leetcode_725;
+package linked_list;
 
 import java.util.Arrays;
 
@@ -40,7 +40,7 @@ public class leetcode_725 {
         return result;
     }
     
-    public class ListNode {
+    public static class ListNode {
         int val;
         ListNode next;
 
