@@ -1,4 +1,4 @@
-package backtracking
+package math
 
 class LeetCode_2240 {
 
