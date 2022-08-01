@@ -1,12 +1,27 @@
 package array;
 
-import leetcode.ListNode;
-
 public class leetcode_24 {
     public static void main(String[] args) {
         leetcode_24 lc = new leetcode_24();
-        ListNode list = ListNode.of(1, 2, 3, 4);
+        ListNode list = new ListNode(1, new ListNode(2, new ListNode(3, new ListNode(4))));
         System.out.println(lc.swapPairs(list));
+    }
+
+    private static class ListNode {
+        int val;
+        ListNode next;
+
+        ListNode() {
+        }
+
+        ListNode(int val) {
+            this.val = val;
+        }
+
+        ListNode(int val, ListNode next) {
+            this.val = val;
+            this.next = next;
+        }
     }
 
     public ListNode swapPairs(ListNode head) {

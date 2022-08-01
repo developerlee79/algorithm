@@ -1,7 +1,7 @@
 package string;
 
-import Algorithm.structure.set.Set;
-import Algorithm.structure.set.hashset.HashSet;
+import java.util.HashSet;
+import java.util.Set;
 
 public class leetcode_929 {
     public static void main(String[] args) {
