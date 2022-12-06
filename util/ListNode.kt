@@ -10,14 +10,12 @@ class ListNode(
 
         val stringBuilder = StringBuilder("ListNode(${printFormat.format(`val`)}")
 
-        val originalNextNode = next
+        var printNode = next
 
-        while (true) {
-            stringBuilder.append(printFormat.format(next?.`val` ?: break))
-            next = next!!.next
+        while (printNode != null) {
+            stringBuilder.append(printFormat.format(printNode.`val`))
+            printNode = printNode.next
         }
-
-        next = originalNextNode
 
         stringBuilder.delete(stringBuilder.length - 2, stringBuilder.length).append(")")
 
