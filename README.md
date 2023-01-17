@@ -16,4 +16,4 @@ Feel free to let me know if you have found a problem(algorithm) that can be impr
 
 I usually use LeetCode to online judge.
 
-If you are COOL folks who interested in studying Problem-Solving and prepare Coding Interview, plz contact me. I'd like to study with you.
+If you are COOL folks who is interested in studying Problem-Solving and prepare Coding Interview, plz contact me. I'd like to study with you.
