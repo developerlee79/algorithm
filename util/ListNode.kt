@@ -22,6 +22,21 @@ class ListNode(
         return stringBuilder.toString()
     }
 
+    fun equals(other: ListNode?): Boolean {
+        var idx1: ListNode? = this
+        var idx2: ListNode? = other
+
+        while (idx1 != null && idx2 != null) {
+            if (idx1.`val` != idx2.`val`) {
+                return false
+            }
+            idx1 = idx1.next
+            idx2 = idx2.next
+        }
+
+        return idx1 == idx2
+    }
+
     companion object {
 
         fun create(vararg values: Int): ListNode? {
