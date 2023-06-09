@@ -12,11 +12,11 @@ class LeetCode_744 {
         var left = 0
         var right = n - 1
 
-        while (left <= right) {
-            val mid = (left + right) / 2
+        while (left < right) {
+            val mid = (right - left) / 2 + left
 
             if (letters[mid] <= target) {
-                left = mid - 1
+                left = mid + 1
             } else {
                 right = mid
             }
