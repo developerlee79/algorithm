@@ -1,48 +1,53 @@
 package dp
 
-import kotlin.math.max
-
 class LeetCode_1048 {
 
-    /**
-     * Solution - Dynamic Programming
-     * Time Complexity : O(NlogN)
-     * Space Complexity : O(N)
-     *
-     * Solve the problem by Dynamic programming with Map.
-     * Sort word arrays by length so that you can check if they are "chain" in order.
-     * Suppose the current word is the longest word, and find the number of "chain" by erasing the character of the current word one by one.
-     * If there is a word in map that has erased one character from the current word, continue (plus one) with the "chain" of that word.
-     * Compare the longest chain in every iteration to find the longest chain.
-     *
-     * @param words array of words where each word consists of lowercase English letters
-     * @return length of the longest possible word chain* with words chosen from the given list of words
-     *        * word chain : sequence of words where word is a predecessor (if insert exactly one letter anywhere in wordA without changing the order) of another word
-     */
-    fun longestStrChain(words: Array<String>): Int {
-        val dp: MutableMap<String, Int> = mutableMapOf()
-        words.sortBy { it.length }
+    private fun String.exceptIndex(index: Int): String {
+        val stringBuilder = StringBuilder()
 
-        var longestChain = 1
-        for (word in words) {
-            var currentChain = 1
-            val stringBuilder = StringBuilder(word)
-
-            for (i in word.indices) {
-                stringBuilder.deleteCharAt(i)
-                currentChain = max(currentChain, dp.getOrDefault(stringBuilder.toString(), 0) + 1)
-                stringBuilder.insert(i, word[i])
+        for (i in this.indices) {
+            if (i == index) {
+                continue
             }
-
-            dp[word] = currentChain
-            longestChain = max(longestChain, currentChain)
+            stringBuilder.append(this[i])
         }
 
-        return longestChain
+        return stringBuilder.toString()
+    }
+
+    fun longestStrChain(words: Array<String>): Int {
+        words.sortBy { it.length }
+
+        var chainSize = 0
+
+        val chainMap = hashMapOf<String, Int>()
+
+        words.forEach { word ->
+            var lastChain = 0
+
+            repeat(word.length) {
+                val exceptedWord = word.exceptIndex(it)
+
+                if (chainMap.containsKey(exceptedWord)) {
+                    lastChain = maxOf(lastChain, chainMap[exceptedWord]!!)
+                }
+            }
+
+            chainMap[word] = 1 + lastChain
+
+            chainSize = maxOf(chainSize, chainMap[word]!!)
+        }
+
+        return chainSize
     }
 }
 
 fun main() {
-    val words = arrayOf("xbc", "pcxbcf", "xb", "cxbc", "pcxbc")
-    println(LeetCode_1048().longestStrChain(words))
+    // Input
+    val words = arrayOf("a", "b", "ba", "bca", "bda", "bdca")
+    // Output
+    LeetCode_1048().longestStrChain(words).run {
+        println(this)
+        require(4 == this)
+    }
 }
