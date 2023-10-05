@@ -1,4 +1,4 @@
-## Problem-Solving Repository
+## LeetCode Problem-Solving Repository
 
 ---
 
@@ -10,10 +10,4 @@
 
 <br>
 
-Upload the algorithm problem what I solved / studied with explanatory comments as daily as possible.
-
-Feel free to let me know if you have found a problem(algorithm) that can be improved or approached in a better way.
-
-I usually use LeetCode to online judge.
-
-If you are COOL folks who is interested in studying Problem-Solving and prepare Coding Interview, plz contact me. I'd like to study with you.
+Upload the algorithm(ps) problem what I solved.
