@@ -1,5 +1,7 @@
 package bit_manipulation
 
+import kotlin.math.ceil
+
 class LeetCode_779 {
 
     /**
@@ -18,17 +20,27 @@ class LeetCode_779 {
      * @return kth (1-indexed) symbol in the nth row of a table of n rows
     */
     fun kthGrammar(n: Int, k: Int): Int {
-        return if (n == 1)
-            0
-        else if (k % 2 == 0)
-            1 - kthGrammar(n - 1, k / 2)
+        if (n == 1) {
+            return 0
+        }
+
+        val parent = kthGrammar(n - 1, ceil(k / 2.0).toInt())
+        val isOdd = k % 2 == 1
+
+        return if (parent == 0)
+            if (isOdd) 0 else 1
         else
-            kthGrammar(n - 1, (k + 1) / 2)
+            if (isOdd) 1 else 0
     }
 }
 
 fun main() {
+    // Input
     val n = 1
     val k = 1
-    println(LeetCode_779().kthGrammar(n, k))
+    // Output
+    LeetCode_779().kthGrammar(n, k).run {
+        println(this)
+        require(0 == this)
+    }
 }
