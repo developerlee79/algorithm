@@ -1,53 +1,40 @@
 package tree
 
+import util.TreeNode
+
 class LeetCode_606 {
 
-    class TreeNode(var `val`: Int) {
-        var left: TreeNode? = null
-        var right: TreeNode? = null
-    }
-
-    /**
-     * Solution - StringBuilder
-     * Time Complexity : O(N)
-     * Space Complexity : O(N)
-     *
-     * Simple recursion.
-     * Put left parentheses, proceed with the recursion, and put right parenthesis.
-     * If the right node exists, also add the left node to resolve the Edge case.
-     *
-     * @param root root of a binary tree
-     * @return string consisting of parenthesis and integers from a binary tree with the preorder traversal way
-    */
     fun tree2str(root: TreeNode?): String {
-        return search(root, StringBuilder()).toString()
+        if (root == null) return ""
+        val treeStringBuilder = StringBuilder()
+        search(root, treeStringBuilder)
+        return treeStringBuilder.toString()
     }
 
-    private fun search(root: TreeNode?, builder: StringBuilder): StringBuilder {
-        if (root == null) {
-            return builder
-        }
-
-        builder.append(root.`val`)
+    private fun search(root: TreeNode, treeStringBuilder: StringBuilder) {
+        treeStringBuilder.append(root.`val`)
 
         if (root.left != null) {
-            search(root.left, builder.append("(")).append(")")
-        } else if (root.right != null) {
-            search(root.left, builder.append("(")).append(")")
+            treeStringBuilder.append("(")
+            search(root.left!!, treeStringBuilder)
+            treeStringBuilder.append(")")
         }
 
         if (root.right != null) {
-            search(root.right, builder.append("(")).append(")")
+            if (root.left == null) {
+                treeStringBuilder.append("()")
+            }
+            treeStringBuilder.append("(")
+            search(root.right!!, treeStringBuilder)
+            treeStringBuilder.append(")")
         }
-
-        return builder
     }
 }
 
 fun main() {
-    val root = LeetCode_606.TreeNode(1)
-    root.left = LeetCode_606.TreeNode(2)
-    root.right = LeetCode_606.TreeNode(3)
-    root.left!!.left = LeetCode_606.TreeNode(4)
-    println(LeetCode_606().tree2str(root))
+    val root = TreeNode.of(1, 2, 3, 4)
+    LeetCode_606().tree2str(root).run {
+        println(this)
+        require("1(2(4))(3)" == this)
+    }
 }
