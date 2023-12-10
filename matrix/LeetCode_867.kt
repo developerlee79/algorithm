@@ -2,22 +2,11 @@ package matrix
 
 class LeetCode_867 {
 
-    /**
-     * Solution - Brute force
-     * Time Complexity : O(N)
-     * Space Complexity : O(N)
-     *
-     * Transpose of a matrix is just vice-versa of ordinary matrix.
-     * So... Just flip it.
-     *
-     * @param matrix 2D integer array
-     * @return transpose of matrix
-     */
     fun transpose(matrix: Array<IntArray>): Array<IntArray> {
         val transposedMatrix = Array(matrix[0].size) { IntArray(matrix.size) }
 
         for (i in matrix.indices) {
-            for (j in 0 until matrix[i].size) {
+            for (j in matrix[i].indices) {
                 transposedMatrix[j][i] = matrix[i][j]
             }
         }
@@ -27,7 +16,21 @@ class LeetCode_867 {
 }
 
 fun main() {
-    val leetcode = LeetCode_867()
-    val matrix = arrayOf(intArrayOf(1, 2, 3), intArrayOf(4, 5, 6))
-    println(leetcode.transpose(matrix).contentDeepToString())
+    // Input
+    val matrix = arrayOf(
+        intArrayOf(1, 2, 3),
+        intArrayOf(4, 5, 6),
+        intArrayOf(7, 8, 9)
+    )
+    // Output
+    LeetCode_867().transpose(matrix).run {
+        println(this.contentDeepToString())
+        require(
+            arrayOf(
+                intArrayOf(1, 4, 7),
+                intArrayOf(2, 5, 8),
+                intArrayOf(3, 6, 9)
+            ).contentDeepEquals(this)
+        )
+    }
 }
