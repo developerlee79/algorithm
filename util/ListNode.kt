@@ -1,9 +1,9 @@
 package util
 
 class ListNode(
-    var `val`: Int
-) {
+    var `val`: Int,
     var next: ListNode? = null
+) {
 
     override fun toString(): String {
         val printFormat = "val=%s, "
