@@ -32,6 +32,6 @@ fun main() {
     // Output
     LeetCode_3063().frequenciesOfElements(head).run {
         println(this)
-        println(ListNode.create(3, 2, 1).equals(this))
+        println(ListNode.create(3, 2, 1)!!.equals(this))
     }
 }
